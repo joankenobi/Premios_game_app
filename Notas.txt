@@ -1,0 +1,3 @@
+Notas del curso: https://telegra.ph/Curso-B%C3%A1sico-de-Django-01-31
+Para crear un .gitignore adecuado a cada proyecto: https://www.toptal.com/developers/gitignore
+Para activar el enviroment en Win, .\venv\Scripts\activate.bat
