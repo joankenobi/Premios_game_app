@@ -4,3 +4,5 @@ Para activar el enviroment en Win, .\venv\Scripts\activate.bat
 
 Para aplicar migracion de los modelos python manage.py makemigrations polls (pero antes es necesario agregar la app en settings)
 para guardar los cambios aplicar python manage.py migrate 
+
+Para crear super usuario: python manage.py createsuperuser User:joan Password:joan
