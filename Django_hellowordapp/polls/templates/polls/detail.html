@@ -1,11 +1,41 @@
 {% comment %} 
 debe de mostrar las opciones de cada pregunta siempre que exista
+y poder ejecutar la votacion con el endpoint votar
 {% endcomment %}
-<h1>{{question.question_text}}</h1>
+
+<form 
+    action="{% url 'polls:vote' question.id %}" 
+    method="post"> <!--al terminar el formulario ejecutar la view vote, el metodo post es para ocultar el mensaje y no se tenga acceso a el-->
+{% csrf_token %} <!--permite evitar un ataque csrf, siempre aplicar para mehod post-->
+<fieldset>
+    <legend>
+        <h1>{{question.question_text}}</h1>
+    </legend>
+    {% if error_message %}
+    <p><strong>{{error_message}}</strong></p> <!--captura el mensaje de error-->
+    {% endif %}
+    {% for choice in question.choice_set.all %}
+    <input 
+        type="radio" 
+        name="choice" 
+        id="choice{{forloop.counter}}"
+        value="{{choice.id}}"
+        ><!----><!--que es forloop.counter???-->
+    <label for="choice{{forloop.counter}}">
+        {{choice.choice_text}}
+        <br>
+    </label>
+    {% endfor %}
+</fieldset>
+<input type="submit" value="Votar">
+</form>
+
+
+{% comment %} <h1>{{question.question_text}}</h1>
 <ul>
     {% for choice in question.choice_set.all %}
     <li>
         {{choice.choice_text}}
     </li>
     {% endfor %}
-</ul>
+</ul> {% endcomment %}

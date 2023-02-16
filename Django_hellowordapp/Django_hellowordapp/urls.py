@@ -20,7 +20,6 @@ from polls.views import index
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("polls/", #path 
-         include("polls.urls"), #incluye las url dentro polls.urls
-         name="polls"
+         include("polls.urls") #incluye las url dentro polls.urls
          ),
 ]
